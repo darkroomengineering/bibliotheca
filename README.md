@@ -37,9 +37,6 @@ This template kit is composed of:
 
 - [Vanilla](https://github.com/studio-freight/bibliotheca) (you're here)
 - [With React](https://github.com/studio-freight/bibliotheca/tree/with-react)
-- [With Contentful](https://github.com/studio-freight/bibliotheca/tree/with-contentful)
-- [With react-three-fiber](https://github.com/studio-freight/bibliotheca/tree/with-r3f)
-- [With OGL](https://github.com/studio-freight/bibliotheca/tree/with-ogl)
 
 <br/>
 
