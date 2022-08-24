@@ -30,13 +30,14 @@ This template kit is composed of:
 - [Github Actions](https://github.com/features/actions)
 - [semantic-release](https://github.com/semantic-release/semantic-release)
 - [Vite](https://github.com/vitejs/vite)
+- [React](https://github.com/facebook/react)
 
 <br/>
 
 ## Flavors
 
-- [Vanilla](https://github.com/studio-freight/bibliotheca) (you're here)
-- [With React](https://github.com/studio-freight/bibliotheca/tree/with-react)
+- [Vanilla](https://github.com/studio-freight/bibliotheca)
+- [With React](https://github.com/studio-freight/bibliotheca/tree/with-react) (you're here)
 
 <br/>
 
