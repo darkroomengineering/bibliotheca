@@ -1,5 +1,2 @@
-export function hello(name) {
-    return `Hello ${name}!`;
-}
-export default { hello };
+exports.hello=function(e){return"Hello "+e+"!"};
 //# sourceMappingURL=index.js.map

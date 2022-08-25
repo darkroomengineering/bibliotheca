@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.js"],"names":[],"mappings":"AAAA,MAAM,UAAU,KAAK,CAAC,IAAI;IACxB,OAAO,SAAS,IAAI,GAAG,CAAA;AACzB,CAAC;AAED,eAAe,EAAE,KAAK,EAAE,CAAA"}
+{"version":3,"file":"index.js","sources":["../src/index.js"],"sourcesContent":["export function hello(name) {\n  return `Hello ${name}!`\n}\n"],"names":["name"],"mappings":"cAAO,SAAeA,GACpB,MAAA,SAAgBA,EACjB,GAAA"}

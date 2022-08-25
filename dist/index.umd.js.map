@@ -1,0 +1,1 @@
+{"version":3,"file":"index.umd.js","sources":["../src/index.js"],"sourcesContent":["export function hello(name) {\n  return `Hello ${name}!`\n}\n"],"names":["name"],"mappings":"6OAAO,SAAeA,GACpB,MAAA,SAAgBA,EACjB,GAAA"}
