@@ -44,7 +44,7 @@ This template kit is composed of:
 
 ## Authors
 
-This toolkit is curated and maintained by the Studio Freight Things team:
+This toolkit is curated and maintained by the Studio Freight Darkroom team:
 
 - Clement Roche ([@clementroche\_](https://twitter.com/clementroche_)) – [Studio Freight](https://studiofreight.com)
 - Guido Fier ([@uido15](https://twitter.com/uido15)) – [Studio Freight](https://studiofreight.com)
