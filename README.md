@@ -43,6 +43,14 @@ This template kit is composed of:
 
 <br/>
 
+## Bibliotheca in use
+
+- [@studio-freight/lenis](https://github.com/studio-freight/lenis) Tiny, Performant, Vanilla JS, Smooth Scroll library.
+- [@studio-freight/tempus](https://github.com/studio-freight/tempus) One rAF to rule them all.
+- [@studio-freight/hamo](https://github.com/studio-freight/hamo) Collection of React hooks.
+
+<br/>
+
 ## Authors
 
 This toolkit is curated and maintained by the Studio Freight Darkroom team:
