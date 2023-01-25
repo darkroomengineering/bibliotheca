@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
+    "strict": true,
     "esModuleInterop": true,
-    "declarationMap": true,
     "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
+    "skipLibCheck": true,
     "checkJs": false,
     "allowJs": true,
-    "outDir": "./dist",
-    "skipLibCheck": true,
-    "strict": true
+    "declaration": true,
+    "declarationMap": true,
+    "allowSyntheticDefaultImports": true
   },
   "files": ["./src/index.js"]
 }

@@ -1,10 +1,12 @@
 {
   "name": "bibliotheca",
-  "version": "0.0.0",
-  "description": "A simple library template",
-  "source": "./src/index.js",
+  "version": "1.0.0",
+  "description": "",
   "types": "./dist/cjs/types/index.d.ts",
   "main": "./dist/cjs/index.js",
+  "files": [
+    "dist/**/*"
+  ],
   "exports": {
     ".": {
       "import": {
@@ -17,26 +19,17 @@
       }
     }
   },
-  "files": [
-    "dist/**/*"
-  ],
   "scripts": {
     "dev": "vite docs",
     "size": "size-limit",
     "clean": "rm -rf ./dist",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:bundled",
     "build:esm": "tsc -p ./tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "build:bundled": "tsc -p ./tsconfig.bundled.json",
     "prepack": "npm run build",
     "format": "prettier --write \"src/**/*.js\"",
-    "lint": "npm run lint:esm && npm run lint:cjs",
-    "lint:esm": "tslint -p tsconfig.esm.json",
-    "lint:cjs": "tslint -p tsconfig.cjs.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "lint": "eslint \"src/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -51,10 +44,16 @@
   "homepage": "https://github.com/studio-freight/bibliotheca#readme",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
     "prettier": "^2.8.3",
-    "size-limit": "^8.1.2",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0",
+    "semantic-release": "^20.1.0",
     "typescript": "^4.9.4",
     "vite": "^4.0.4"
   },

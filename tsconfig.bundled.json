@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "outFile": "./bundled/index.js"
+  }
+}
