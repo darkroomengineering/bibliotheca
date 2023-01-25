@@ -1,4 +1,4 @@
-import { hello } from '../dist/index.modern.mjs'
+import { hello } from '../dist/esm/index.mjs'
 import './index.css'
 
 const el = document.createElement('p')
