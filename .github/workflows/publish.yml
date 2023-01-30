@@ -1,4 +1,4 @@
-name: Publish package to npmjs
+name: Publish to NPM
 on:
   release:
     types: [created]
@@ -6,12 +6,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: 16
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn
-      - run: yarn publish
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+
+      - name: Install dependencies and build
+        run: pnpm i --frozen-lockfile
+      - name: Publish package on NPM
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
