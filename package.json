@@ -2,35 +2,33 @@
   "name": "bibliotheca",
   "version": "1.0.0",
   "description": "",
-  "types": "./dist/cjs/types/index.d.ts",
-  "main": "./dist/cjs/index.js",
   "files": [
     "dist/**/*",
     "bundled/**/*"
   ],
+  "sideEffects": false,
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "types": "dist/types/index.d.ts",
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/esm/types/index.d.ts",
-        "default": "./dist/esm/index.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/types/index.d.ts",
-        "default": "./dist/cjs/index.js"
-      }
-    }
+    "require": "./dist/index.js",
+    "default": "./dist/index.modern.mjs"
   },
   "scripts": {
-    "dev": "vite docs",
-    "size": "size-limit",
-    "clean": "rm -rf ./dist",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:bundled",
-    "build:esm": "tsc -p ./tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
-    "build:cjs": "tsc -p ./tsconfig.cjs.json",
-    "build:bundled": "tsc -p ./tsconfig.bundled.json",
-    "prepack": "npm run build",
-    "format": "prettier --write \"src/**/*.js\"",
-    "lint": "eslint \"src/**/*.js\""
+    "dev": "vite",
+    "clean": "npm-run-all --parallel clean:bundled clean:dist",
+    "clean:bundled": "rm -rf bundled",
+    "clean:dist": "rm -rf dist",
+    "prepublishOnly": "npm version patch",
+    "preversion": "npm run build",
+    "build": "npm-run-all --parallel clean build:dist build:bundle build:types",
+    "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments ./src/index.js",
+    "build:dist": "microbundle build -i src/ --o ./dist",
+    "build:bundle": "npm-run-all build:bundle-full build:bundle-min",
+    "build:bundle-full": "microbundle build -i src/ --o ./bundled/index.js --no-sourcemap --no-pkg-main --external none --name $npm_package_name --format umd  --no-compress",
+    "build:bundle-min": "microbundle build -i src/ --o ./bundled/index.min.js --no-sourcemap --no-pkg-main --external none --name $npm_package_name --format umd"
   },
   "repository": {
     "type": "git",
@@ -45,16 +43,16 @@
   "homepage": "https://github.com/studio-freight/bibliotheca#readme",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.1.2",
-    "@typescript-eslint/eslint-plugin": "^5.49.0",
-    "@typescript-eslint/parser": "^5.49.0",
-    "eslint": "^8.0.1",
+    "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "microbundle": "^0.15.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.3",
-    "semantic-release": "^20.1.0",
     "typescript": "^4.9.4",
     "vite": "^4.0.4"
   },
